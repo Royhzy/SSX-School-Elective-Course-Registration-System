@@ -1,0 +1,117 @@
+<view>
+    <view style="background-color: #FFFFff">
+	  <view class="leibiets">类别</view>
+      <view class='select_box'>
+        <view class='select' catchtap='selectTaps'>
+          <text class='select_text'>{{selectDatas[indexs]}}</text>
+          <image class='select_img {{shows&&"select_img_rotate"}}' src='../../image/xiangxia.png'></image>
+        </view>
+        <view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.length*60):0}}rpx;'>
+        	<text class='option' style='{{indexs==selectDatas.length-99&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      	</view>
+
+      </view>
+
+	  <view class="leibiets">剩余人数</view>
+      <view class='select_box2'>
+      	<view class='select2' catchtap='selectTaps2'>
+        	<text class='select_text2'>{{selectDatas2[indexs2]}}</text>
+		  	<image class='select_img2 {{shows2&&"select_img_rotate"}}' src='../../image/xiangxia.png'></image>
+     	</view>
+      <view class='option_box2' style='height:{{shows2?(selectDatas2.length>5?300:selectDatas2.length*60):0}}rpx;'>
+        	<text class='option2' style='{{indexs2==selectDatas2.length-99&&"border:0;"}}' wx:for='{{selectDatas2}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps2'>{{item}}</text>
+     	</view>
+   	 </view>
+		</view>
+
+		<view class="slot-content">
+
+			<scroll-view scroll-y="true">
+
+				  <view class="a1" wx:if="{{!yzlist[0].couID}}" wx:for="{{list}}" wx:key="index">       <!--课程模块-->
+
+						<view class="a2">
+							<view style="font-weight: bold;">
+								课程名:{{item.Cname}}
+							</view>
+							<view style="font-size: 24rpx;margin: 16rpx 0rpx; ">
+								上课地点:{{item.place}}
+							</view>
+
+						</view>
+						<view class="a5">
+							<view class="a3">
+								剩余人数:
+								<view style="float: right;" wx:if="{{item.remain!=-99}}">{{item.remain}}</view>
+								<view style="float: right;" wx:if="{{item.remain==-99}}">
+									老师选拔
+								</view>
+							</view>
+							
+							<view>
+								<view class="bm" wx:if="{{item.remain!=0&&item.remain!=-99}}"  bindtap="gobaoming" data-id="{{item._id}}">
+									报名课程
+								</view>
+
+								<view class="ym" wx:if="{{item.remain==-99}}">
+									线下选拔
+								</view>
+
+								<view class="ym" wx:if="{{item.remain==0}}">
+									人数已满
+								</view>
+							</view>
+						</view>
+				  </view>
+
+
+				  <view class="a1" wx:if="{{yzlist[0].couID}}" wx:for="{{list}}" wx:key="index">       <!--课程模块-->
+
+						<view class="a2">
+							<view style="font-weight: bold;">
+								课程名:{{item.Cname}}
+							</view>
+							<view style="font-size: 24rpx;margin: 10rpx 0rpx; ">
+								上课地点:{{item.place}}
+							</view>
+
+						</view>
+						<view class="a5">
+							<view class="a3">
+								剩余人数:
+								<view style="float: right;" wx:if="{{item.remain!=-99}}">{{item.remain}}</view>
+								<view style="float: right;" wx:if="{{item.remain==-99}}">
+									老师选拔
+								</view>
+							</view>
+							
+							<view>
+								<view class="ym" wx:if="{{item.remain==-99}}">
+									线下选拔
+								</view>
+
+								<view class="ym" wx:elif="{{item.remain==0&&item._id!=yzlist[0].couID}}">
+									人数已满
+								</view>
+
+								<view class="ym" wx:elif="{{item._id==yzlist[0].couID}}">
+									已报名
+								</view>
+
+								<view class="ym" wx:else>
+									报名课程
+								</view>
+
+							</view>
+						</view>
+				  </view>
+
+
+
+
+			</scroll-view>
+
+		</view>
+
+	</view>
+

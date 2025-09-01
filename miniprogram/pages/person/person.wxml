@@ -1,0 +1,86 @@
+<view>
+		<view class="a1">
+			<view class="a2">
+				<view style="font-size: 28rpx;font-weight: bold; letter-spacing: 2rpx;">
+					欢迎您:
+					<text wx:if="{{xslist.name}}">{{xslist.name}} 同学</text>
+					<text wx:else>未绑定</text>
+				</view>
+				<view style="margin: 15rpx 0rpx;font-size: 20rpx;">
+					班级: 
+					<text wx:if="{{xslist.class}}">三年{{xslist.class}}</text>
+					<text wx:else>未绑定</text>
+				</view>
+				<view style="margin: 15rpx 0rpx;font-size: 20rpx;">
+					号数: 
+					<text wx:if="{{xslist.number}}">{{xslist.number}}</text>
+					<text wx:else>未绑定</text>
+				</view>
+				<view style="font-size: 20rpx">
+					联系电话:
+					<text wx:if="{{xslist.phone}}">{{xslist.phone}}</text>
+					<text wx:else>未绑定</text>
+				</view>
+			</view>
+
+			<!-- <view class="a3" wx:if="{{xslist.name}}" bindtap="xiugai" data-id="{{xslist._id}}">
+				<view>修改信息</view>
+			</view>
+			<view class="a3" style="background-color: #949494;" wx:if="{{!xslist.name}}">
+				<view>修改信息</view>
+			</view> -->
+
+		</view>
+
+		<view class="a9">
+			<view class="" style="margin-bottom: 10rpx;display: flex;justify-content: space-between;">
+				<view style="font-weight: bold;">
+					课程名:
+					<text wx:if="{{kblist.Cname}}">{{kblist.Cname}}</text>			
+				</view>
+				<view style="display: flex;align-items: center;">
+					<text style="font-size: 22rpx;">班级人数:{{txlist.length}}</text>
+				</view>
+			</view>
+			<view style="display: flex;flex-direction: row;justify-content: space-between;">
+				<view style="font-size: 24rpx">
+					上课地点：{{kblist.place}}
+				</view>
+
+			</view>
+		</view>
+
+		<view class="a9">
+			<view class="" style="margin-bottom: 10rpx;display: flex;justify-content: space-between;">
+				<view style="font-weight: bold;">
+					班级同学
+				</view>
+				<view class="">
+					<!-- <u-icon name="reload" label="刷新" @click="shuaxin"></u-icon> -->
+				</view>
+			</view>
+
+			<view style="height: 650rpx;margin: 10rpx 0rpx;">
+				<block v-else>
+					<scroll-view scroll-y="true" style="height: 600rpx;">
+
+						<view class="aa1" wx:for="{{txlist}}" wx:key="index">
+							<view style="margin-right: 20rpx;">
+								<image src='../../image/logo.png'
+									style="width: 90rpx;height: 90rpx;border-radius: 50%;" mode=""></image>
+							</view>
+							<view>
+								<view style="margin-top: -20rpx;">
+									{{item.name}}
+								</view>
+								<view style="font-size: 22rpx;">
+									加入时间:{{item.time}}
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</block>
+			</view>
+		</view>
+
+	</view>

@@ -1,0 +1,43 @@
+page {
+	background-color: #f3f3f3;
+}
+
+.a1 {
+	width: 90%;
+	border-radius: 15rpx;
+	padding: 30rpx;
+	margin: 10rpx auto;
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.a9 {
+	width: 90%;
+	border-radius: 15rpx;
+	padding: 30rpx;
+	margin: 10rpx auto;
+	background-color: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+}
+
+.aa1 {
+	margin-top: 20rpx;
+	display: flex;
+	align-items: center;
+}
+
+.a3{
+	width: 120rpx;
+	height: 50rpx;
+	border-radius: 10rpx;
+	background-color: #2B85E4;
+	display: flex;
+	color: #FFFFFF;
+	align-items: center;
+	justify-content: center;
+	font-size: 22rpx;
+}

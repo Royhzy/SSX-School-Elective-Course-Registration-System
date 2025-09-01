@@ -1,0 +1,56 @@
+<view class="a9">
+	<view class="" style="margin-bottom: 10rpx;display: flex;justify-content: space-between;">
+		<view style="font-weight: bold; font-size: 42rpx;">
+			课程名:
+			<text wx:if="{{list.Cname}}">{{list.Cname}}</text>		
+		</view>
+		<view style="display: flex;align-items: center;">
+			<text style="font-size: 24rpx;">剩余人数:{{list.remain}}</text>
+		</view>
+	</view>
+	<view style="display: flex;flex-direction: row;justify-content: space-between;">
+		<view style="font-size: 26rpx; margin-top: 10rpx;">
+			上课地点:{{list.place}}
+		</view>
+	</view>
+</view>
+
+
+<form bindsubmit="btnSub" class="a1">
+	<image src='../../image/logo.png' style="width: 160rpx;height: 160rpx;border-radius: 50%; float: left;margin-top: 100rpx; margin-left: 10rpx; position: absolute;"></image>
+
+	<!-- <view class="txtbj">班级:</view>
+	<view class="txtdh">电话:</view> -->
+	<view>
+		<view class="txt">姓名:</view><textarea name="name" placeholder="请输入姓名" placeholder-class="plstyle" maxlength="10" confirm-type="done"></textarea>
+	</view>	
+	<view>
+		<text class="txtbj" space="nbsp">班级:  三年</text>
+		<view>
+        	<view class='select' catchtap='selectTaps'>
+        	  <text class='select_text'>{{selectDatas[indexs]}}</text>
+        	  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../image/xiangxia.png'></image>
+        	</view>
+        	<view class='option_box' style='height:{{shows?(selectDatas.length>5?300:selectDatas.	length*60):0}}rpx;'>
+        		<text class='option' style='{{indexs==selectDatas.length-1&&"border:0;"}}' wx:for='{{selectDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      		</view>
+        	</view>
+	</view>
+	<view>
+		<view class="txths">号数:</view>	
+		<view>
+      	<view class='select2' catchtap='selectTaps2'>
+        	<text class='select_text2'>{{selectDatas2[indexs2]}}</text>
+		  	<image class='select_img2 {{shows2&&"select_img_rotate"}}' src='../../image/xiangxia.png'></image>
+     	</view>
+      <view class='option_box2' style='height:{{shows2?(selectDatas2.length>5?300:selectDatas2.length*60):0}}rpx;'>
+        	<text class='option2' style='{{indexs2==selectDatas2.length-1&&"border:0;"}}' wx:for='{{selectDatas2}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps2'>{{item}}</text>
+     	</view>
+   	 </view>
+	</view>
+	<view>
+		<view class="txtdh">电话:</view><textarea name="phone" placeholder="请输入电话" style=" margin-top: 36rpx;  padding-top: 0rpx;" maxlength="11" confirm-type="done"></textarea>
+	</view>
+    <button type="primary" form-type="submit" class="btn" style="width: 165rpx; margin-left: 240rpx;">提交</button>
+    <button type="primary" form-type="reset" class="btn" style="width: 165rpx; margin-left: 75rpx;">重置</button>
+</form>

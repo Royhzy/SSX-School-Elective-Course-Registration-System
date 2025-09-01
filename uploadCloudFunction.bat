@@ -1,0 +1,1 @@
+"D:\微信开发工具\微信web开发者工具\cli.bat" cloud functions deploy --e bmxt-lsqgf --n quickstartFunctions --r --project "D:\微信小程序实例\三实小云开发（正式）" --report_first --report
